@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator Q4SW2</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+     /* Custom CSS */
+    .container {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .text-content {
+      width: 45%;
+    }
+    .image-container {
+      width: 45%;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      align-items: center;
+    }
+    body {
+      font-family: CatCafe;
+font-size: 19px;
+    }
+
+ .image-container {
+      width: 300%;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: 200px;
+      width: 200px;
+    }
+h1 {
+  text-align: center;
+}
+p {
+text-align: justify;
+}
+</style>
+</head>
+<body>
+<h1 class="mt-4">Calculator by Oswald ^</h1>
+  <div class="container">
+    
+     <div class="image-container">
+      <img src="oswald5.png"> <img src="oswald2.png"> <img src="oswald3.png"> <img src="oswald4.png"> <img src="oswald.png"> 
+    <p>Meow! I'm Oswald, the cat. Here is my user-friendly calculator. <br> Instructions: Type 2 numbers below and click the corresponding buttons to find their sum, difference, product, or quotient! </p>
+
+     <form id="calculatorForm">
+          <div class="form-group">
+            <label for="num1">Enter first number:</label>
+            <input type="number" class="form-control" id="num1" required>
+          </div>
+          <div class="form-group">
+            <label for="num2">Enter second number:</label>
+            <input type="number" class="form-control" id="num2" required>
+          </div>
+          <!-- Buttons for different calculations -->
+          <button type="button" class="btn btn-success" onclick="calculateSum()">Sum</button>
+          <button type="button" class="btn btn-danger" onclick="calculateDifference()">Difference</button>
+          <button type="button" class="btn btn-primary" onclick="calculateProduct()">Product</button>
+          <button type="button" class="btn btn-dark" onclick="calculateQuotient()">Quotient</button>
+        </form>
+        <!-- Result section -->
+        <div id="results" class="mt-3"></div>
+      </div>
+     
+    </div>
+
+  <script>
+    // JavaScript calculations
+    function calculateSum() {
+      performCalculation('sum', '+');
+    }
+
+    function calculateDifference() {
+      performCalculation('difference', '-');
+    }
+
+    function calculateProduct() {
+      performCalculation('product', '*');
+    }
+
+    function calculateQuotient() {
+      performCalculation('quotient', '/');
+    }
+
+    function performCalculation(operation, symbol) {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+
+      var result;
+      switch (operation) {
+        case 'sum':
+          result = num1 + num2;
+          break;
+        case 'difference':
+          result = num1 - num2;
+          break;
+        case 'product':
+          result = num1 * num2;
+          break;
+        case 'quotient':
+          result = num1 / num2;
+          break;
+        default:
+          result = 'Invalid operation';
+      }
+
+      document.getElementById('results').innerHTML = `<p>${operation.charAt(0).toUpperCase() + operation.slice(1)}: ${num1} ${symbol} ${num2} = ${result}</p>`;
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
